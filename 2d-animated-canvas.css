@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space {
+  width: 10%;
+  border: solid 1px black;
+  height: 220px;
+}
+
+.space:hover {
+  background-color: aliceblue;
+}
+
+.fixed-container {
+  width: 80%;
+  border: solid 1px black;
+  overflow: hidden;
+}
+
+.moving-container {
+  padding: 10px;
+  /* Make the whole container fits all children boxes with inline outer display */
+  display: inline-grid;
+  /* Alternative:
+  width: -moz-fit-content;
+  width: fit-content; */
+  gap: 10px;
+  grid-auto-flow: column;
+  border: solid 1px red;
+
+  animation: move 5s infinite alternate ease-in-out paused;
+}
+
+.moving-container:hover {
+  animation-play-state: running;
+}
+
+@keyframes move {
+  from {
+    transform: none;
+  }
+  to {
+    /* Left two boxes at the end */
+    transform: translate(calc(-100% + 430px));
+  }
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  border: solid 2px blue;
+}
